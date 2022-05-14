@@ -1,9 +1,10 @@
 # Hello World!
 
-## Description
+### Description
 
-First github project. 
+First github project. App shows text 'Hello World!'.
 
-## Version
+### Versions history
 
-1.0.0
+1.1.0 - text is displayed on the canvas
+1.0.0 - first version, text is displayed by document.write()
