@@ -1,12 +1,30 @@
-const app = document.getElementById('app');
-app.width = 600;
-app.height = 300;
-const context = app.getContext('2d');
+import App from '../node_modules/etsbox-canvas-lib/src/App.js';
+import Text from '../node_modules/etsbox-canvas-lib/src/Text.js';
 
-const font = new FontFace('fifaks', 'url(font/fifaks.woff2)');
-context.textAlign = 'center';
+const config = {
+    width: 600,
+    height: 300
+}
+const app = new App(config);
+const { context } = app;
 
-font.load().then(function () {
-    context.font = '48px fifaks';
-    context.fillText('Hello World!', app.width / 2, app.height / 2);
-});
+const textParams = {
+    context,
+    fontFamily: 'fifaks',
+    fontSize: 48,
+    fontUrl: 'font/fifaks.woff2',
+    textAlign: 'center',
+    textColor: 'black',
+    text: 'Hello World!',
+    x: app.width / 2,
+    y: app.height / 2
+};
+
+const text = new Text(textParams);
+
+const appCycle = () => {
+    app.clearBoard();
+    text.draw();
+}
+
+app.start(appCycle);
